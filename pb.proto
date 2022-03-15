@@ -1,0 +1,17 @@
+// protoc --gogofaster_out=plugins=grpc:. *.proto
+syntax = "proto3";
+
+package pb;
+
+
+message TunRequest {
+    bytes data = 1;
+}
+
+message TunResponse {
+    bytes data = 1;
+}
+
+service Handle {
+    rpc Tun(stream TunRequest) returns (stream TunResponse) {}
+}
