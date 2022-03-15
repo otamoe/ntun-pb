@@ -17,7 +17,7 @@ message TunResponse {
 
 // 网卡 请求
 message EthRequest {
-    bytes host = 1;
+    bytes hostname = 1;
     bytes uuid = 2;
 }
 
