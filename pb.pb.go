@@ -116,200 +116,25 @@ func (m *TunResponse) GetData() []byte {
 	return nil
 }
 
-// 网卡 请求
-type EthRequest struct {
-	Hostname []byte `protobuf:"bytes,1,opt,name=hostname,proto3" json:"hostname,omitempty"`
-	Uuid     []byte `protobuf:"bytes,2,opt,name=uuid,proto3" json:"uuid,omitempty"`
-}
-
-func (m *EthRequest) Reset()         { *m = EthRequest{} }
-func (m *EthRequest) String() string { return proto.CompactTextString(m) }
-func (*EthRequest) ProtoMessage()    {}
-func (*EthRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f80abaa17e25ccc8, []int{2}
-}
-func (m *EthRequest) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *EthRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_EthRequest.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *EthRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EthRequest.Merge(m, src)
-}
-func (m *EthRequest) XXX_Size() int {
-	return m.Size()
-}
-func (m *EthRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_EthRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_EthRequest proto.InternalMessageInfo
-
-func (m *EthRequest) GetHostname() []byte {
-	if m != nil {
-		return m.Hostname
-	}
-	return nil
-}
-
-func (m *EthRequest) GetUuid() []byte {
-	if m != nil {
-		return m.Uuid
-	}
-	return nil
-}
-
-// 网卡 响应
-type EthResponse struct {
-	//  ip 地址
-	Ipaddr [][]byte `protobuf:"bytes,1,rep,name=ipaddr,proto3" json:"ipaddr,omitempty"`
-	// 子网 地址
-	Netmask []byte `protobuf:"bytes,2,opt,name=netmask,proto3" json:"netmask,omitempty"`
-	// 广播 地址
-	Broadcast []byte `protobuf:"bytes,3,opt,name=broadcast,proto3" json:"broadcast,omitempty"`
-	// dns 地址
-	Nameservers [][]byte `protobuf:"bytes,4,rep,name=nameservers,proto3" json:"nameservers,omitempty"`
-	// 路由表
-	Routes [][]byte `protobuf:"bytes,5,rep,name=routes,proto3" json:"routes,omitempty"`
-	// 创建 时间
-	CreatedAt uint64 `protobuf:"varint,41,opt,name=createdAt,proto3" json:"createdAt,omitempty"`
-	// 更新 时间
-	UpdatedAt uint64 `protobuf:"varint,42,opt,name=updatedAt,proto3" json:"updatedAt,omitempty"`
-	// 过期 时间
-	ExpiredAt uint64 `protobuf:"varint,43,opt,name=expiredAt,proto3" json:"expiredAt,omitempty"`
-}
-
-func (m *EthResponse) Reset()         { *m = EthResponse{} }
-func (m *EthResponse) String() string { return proto.CompactTextString(m) }
-func (*EthResponse) ProtoMessage()    {}
-func (*EthResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_f80abaa17e25ccc8, []int{3}
-}
-func (m *EthResponse) XXX_Unmarshal(b []byte) error {
-	return m.Unmarshal(b)
-}
-func (m *EthResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	if deterministic {
-		return xxx_messageInfo_EthResponse.Marshal(b, m, deterministic)
-	} else {
-		b = b[:cap(b)]
-		n, err := m.MarshalToSizedBuffer(b)
-		if err != nil {
-			return nil, err
-		}
-		return b[:n], nil
-	}
-}
-func (m *EthResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_EthResponse.Merge(m, src)
-}
-func (m *EthResponse) XXX_Size() int {
-	return m.Size()
-}
-func (m *EthResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_EthResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_EthResponse proto.InternalMessageInfo
-
-func (m *EthResponse) GetIpaddr() [][]byte {
-	if m != nil {
-		return m.Ipaddr
-	}
-	return nil
-}
-
-func (m *EthResponse) GetNetmask() []byte {
-	if m != nil {
-		return m.Netmask
-	}
-	return nil
-}
-
-func (m *EthResponse) GetBroadcast() []byte {
-	if m != nil {
-		return m.Broadcast
-	}
-	return nil
-}
-
-func (m *EthResponse) GetNameservers() [][]byte {
-	if m != nil {
-		return m.Nameservers
-	}
-	return nil
-}
-
-func (m *EthResponse) GetRoutes() [][]byte {
-	if m != nil {
-		return m.Routes
-	}
-	return nil
-}
-
-func (m *EthResponse) GetCreatedAt() uint64 {
-	if m != nil {
-		return m.CreatedAt
-	}
-	return 0
-}
-
-func (m *EthResponse) GetUpdatedAt() uint64 {
-	if m != nil {
-		return m.UpdatedAt
-	}
-	return 0
-}
-
-func (m *EthResponse) GetExpiredAt() uint64 {
-	if m != nil {
-		return m.ExpiredAt
-	}
-	return 0
-}
-
 func init() {
 	proto.RegisterType((*TunRequest)(nil), "pb.TunRequest")
 	proto.RegisterType((*TunResponse)(nil), "pb.TunResponse")
-	proto.RegisterType((*EthRequest)(nil), "pb.EthRequest")
-	proto.RegisterType((*EthResponse)(nil), "pb.EthResponse")
 }
 
 func init() { proto.RegisterFile("pb.proto", fileDescriptor_f80abaa17e25ccc8) }
 
 var fileDescriptor_f80abaa17e25ccc8 = []byte{
-	// 324 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0x52, 0xcb, 0x4a, 0xf3, 0x40,
-	0x14, 0xce, 0xb4, 0xfd, 0xfb, 0xd7, 0xd3, 0xa2, 0x30, 0x0b, 0x19, 0x8a, 0x84, 0x98, 0x55, 0xbc,
-	0x50, 0x44, 0xb7, 0x6e, 0x14, 0x0a, 0xae, 0x43, 0x5f, 0x60, 0xd2, 0x39, 0xd0, 0xa2, 0x4d, 0xc6,
-	0xb9, 0x88, 0x8f, 0xe1, 0x63, 0xb9, 0xec, 0xd2, 0xa5, 0x34, 0x4f, 0xe0, 0x1b, 0xc8, 0xcc, 0xa4,
-	0x49, 0x17, 0xee, 0xce, 0x77, 0x3b, 0x1f, 0x9c, 0x19, 0x18, 0xc9, 0x62, 0x26, 0x55, 0x65, 0x2a,
-	0xda, 0x93, 0x45, 0x9a, 0x00, 0x2c, 0x6c, 0x99, 0xe3, 0xab, 0x45, 0x6d, 0x28, 0x85, 0x81, 0xe0,
-	0x86, 0x33, 0x92, 0x90, 0x6c, 0x92, 0xfb, 0x39, 0x3d, 0x87, 0xb1, 0x77, 0x68, 0x59, 0x95, 0x1a,
-	0xff, 0xb4, 0xdc, 0x03, 0xcc, 0xcd, 0x6a, 0xbf, 0x64, 0x0a, 0xa3, 0x55, 0xa5, 0x4d, 0xc9, 0x37,
-	0xd8, 0xb8, 0x5a, 0xec, 0xd2, 0xd6, 0xae, 0x05, 0xeb, 0x85, 0xb4, 0x9b, 0xd3, 0x1f, 0x02, 0x63,
-	0x1f, 0x6f, 0x1a, 0x4e, 0x61, 0xb8, 0x96, 0x5c, 0x08, 0xc5, 0x48, 0xd2, 0xcf, 0x26, 0x79, 0x83,
-	0x28, 0x83, 0xff, 0x25, 0x9a, 0x0d, 0xd7, 0xcf, 0x4d, 0x7c, 0x0f, 0xe9, 0x19, 0x1c, 0x15, 0xaa,
-	0xe2, 0x62, 0xc9, 0xb5, 0x61, 0x7d, 0xaf, 0x75, 0x04, 0x4d, 0x60, 0xec, 0xba, 0x35, 0xaa, 0x37,
-	0x54, 0x9a, 0x0d, 0xfc, 0xd2, 0x43, 0xca, 0x35, 0xaa, 0xca, 0x1a, 0xd4, 0xec, 0x5f, 0x68, 0x0c,
-	0xc8, 0xed, 0x5d, 0x2a, 0xe4, 0x06, 0xc5, 0x83, 0x61, 0x17, 0x09, 0xc9, 0x06, 0x79, 0x47, 0x38,
-	0xd5, 0x4a, 0xd1, 0xa8, 0x97, 0x41, 0x6d, 0x09, 0xa7, 0xe2, 0xbb, 0x5c, 0x2b, 0xaf, 0x5e, 0x05,
-	0xb5, 0x25, 0x6e, 0x05, 0x0c, 0x9f, 0x78, 0x29, 0x5e, 0x90, 0x5e, 0x43, 0x7f, 0x61, 0x4b, 0x7a,
-	0x3c, 0x93, 0xc5, 0xac, 0x7b, 0x89, 0xe9, 0x49, 0x8b, 0xc3, 0x55, 0xd2, 0x28, 0x23, 0x37, 0xc4,
-	0xb9, 0xe7, 0x66, 0x15, 0xdc, 0xdd, 0xc9, 0x83, 0xfb, 0xe0, 0x86, 0xc1, 0xfd, 0xc8, 0x3e, 0x77,
-	0x31, 0xd9, 0xee, 0x62, 0xf2, 0xbd, 0x8b, 0xc9, 0x47, 0x1d, 0x47, 0xdb, 0x3a, 0x8e, 0xbe, 0xea,
-	0x38, 0x2a, 0x86, 0xfe, 0x07, 0xdc, 0xfd, 0x06, 0x00, 0x00, 0xff, 0xff, 0xe5, 0xa0, 0xf2, 0xb2,
-	0x0d, 0x02, 0x00, 0x00,
+	// 154 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x28, 0x48, 0xd2, 0x2b,
+	0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x2a, 0x48, 0x52, 0x52, 0xe0, 0xe2, 0x0a, 0x29, 0xcd, 0x0b,
+	0x4a, 0x2d, 0x2c, 0x4d, 0x2d, 0x2e, 0x11, 0x12, 0xe2, 0x62, 0x49, 0x49, 0x2c, 0x49, 0x94, 0x60,
+	0x54, 0x60, 0xd4, 0xe0, 0x09, 0x02, 0xb3, 0x95, 0x14, 0xb9, 0xb8, 0xc1, 0x2a, 0x8a, 0x0b, 0xf2,
+	0xf3, 0x8a, 0x53, 0xb1, 0x29, 0x31, 0x32, 0xe7, 0x62, 0xf7, 0x48, 0xcc, 0x4b, 0xc9, 0x49, 0x2d,
+	0x12, 0xd2, 0xe1, 0x62, 0x0e, 0x29, 0xcd, 0x13, 0xe2, 0xd3, 0x2b, 0x48, 0xd2, 0x43, 0x18, 0x2c,
+	0xc5, 0x0f, 0xe7, 0x43, 0x8c, 0x51, 0x62, 0xd0, 0x60, 0x34, 0x60, 0x74, 0x92, 0x38, 0xf1, 0x48,
+	0x8e, 0xf1, 0xc2, 0x23, 0x39, 0xc6, 0x07, 0x8f, 0xe4, 0x18, 0x27, 0x3c, 0x96, 0x63, 0xb8, 0xf0,
+	0x58, 0x8e, 0xe1, 0xc6, 0x63, 0x39, 0x86, 0x24, 0x36, 0xb0, 0x13, 0x8d, 0x01, 0x01, 0x00, 0x00,
+	0xff, 0xff, 0xbf, 0x78, 0x75, 0x80, 0xae, 0x00, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -320,46 +145,45 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// HandleClient is the client API for Handle service.
+// HandlerClient is the client API for Handler service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type HandleClient interface {
-	Tun(ctx context.Context, opts ...grpc.CallOption) (Handle_TunClient, error)
-	Eth(ctx context.Context, opts ...grpc.CallOption) (Handle_EthClient, error)
+type HandlerClient interface {
+	Tun(ctx context.Context, opts ...grpc.CallOption) (Handler_TunClient, error)
 }
 
-type handleClient struct {
+type handlerClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewHandleClient(cc *grpc.ClientConn) HandleClient {
-	return &handleClient{cc}
+func NewHandlerClient(cc *grpc.ClientConn) HandlerClient {
+	return &handlerClient{cc}
 }
 
-func (c *handleClient) Tun(ctx context.Context, opts ...grpc.CallOption) (Handle_TunClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Handle_serviceDesc.Streams[0], "/pb.Handle/Tun", opts...)
+func (c *handlerClient) Tun(ctx context.Context, opts ...grpc.CallOption) (Handler_TunClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_Handler_serviceDesc.Streams[0], "/pb.Handler/Tun", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &handleTunClient{stream}
+	x := &handlerTunClient{stream}
 	return x, nil
 }
 
-type Handle_TunClient interface {
+type Handler_TunClient interface {
 	Send(*TunRequest) error
 	Recv() (*TunResponse, error)
 	grpc.ClientStream
 }
 
-type handleTunClient struct {
+type handlerTunClient struct {
 	grpc.ClientStream
 }
 
-func (x *handleTunClient) Send(m *TunRequest) error {
+func (x *handlerTunClient) Send(m *TunRequest) error {
 	return x.ClientStream.SendMsg(m)
 }
 
-func (x *handleTunClient) Recv() (*TunResponse, error) {
+func (x *handlerTunClient) Recv() (*TunResponse, error) {
 	m := new(TunResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -367,77 +191,42 @@ func (x *handleTunClient) Recv() (*TunResponse, error) {
 	return m, nil
 }
 
-func (c *handleClient) Eth(ctx context.Context, opts ...grpc.CallOption) (Handle_EthClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Handle_serviceDesc.Streams[1], "/pb.Handle/Eth", opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &handleEthClient{stream}
-	return x, nil
+// HandlerServer is the server API for Handler service.
+type HandlerServer interface {
+	Tun(Handler_TunServer) error
 }
 
-type Handle_EthClient interface {
-	Send(*EthRequest) error
-	Recv() (*EthResponse, error)
-	grpc.ClientStream
+// UnimplementedHandlerServer can be embedded to have forward compatible implementations.
+type UnimplementedHandlerServer struct {
 }
 
-type handleEthClient struct {
-	grpc.ClientStream
-}
-
-func (x *handleEthClient) Send(m *EthRequest) error {
-	return x.ClientStream.SendMsg(m)
-}
-
-func (x *handleEthClient) Recv() (*EthResponse, error) {
-	m := new(EthResponse)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-// HandleServer is the server API for Handle service.
-type HandleServer interface {
-	Tun(Handle_TunServer) error
-	Eth(Handle_EthServer) error
-}
-
-// UnimplementedHandleServer can be embedded to have forward compatible implementations.
-type UnimplementedHandleServer struct {
-}
-
-func (*UnimplementedHandleServer) Tun(srv Handle_TunServer) error {
+func (*UnimplementedHandlerServer) Tun(srv Handler_TunServer) error {
 	return status.Errorf(codes.Unimplemented, "method Tun not implemented")
 }
-func (*UnimplementedHandleServer) Eth(srv Handle_EthServer) error {
-	return status.Errorf(codes.Unimplemented, "method Eth not implemented")
+
+func RegisterHandlerServer(s *grpc.Server, srv HandlerServer) {
+	s.RegisterService(&_Handler_serviceDesc, srv)
 }
 
-func RegisterHandleServer(s *grpc.Server, srv HandleServer) {
-	s.RegisterService(&_Handle_serviceDesc, srv)
+func _Handler_Tun_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(HandlerServer).Tun(&handlerTunServer{stream})
 }
 
-func _Handle_Tun_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(HandleServer).Tun(&handleTunServer{stream})
-}
-
-type Handle_TunServer interface {
+type Handler_TunServer interface {
 	Send(*TunResponse) error
 	Recv() (*TunRequest, error)
 	grpc.ServerStream
 }
 
-type handleTunServer struct {
+type handlerTunServer struct {
 	grpc.ServerStream
 }
 
-func (x *handleTunServer) Send(m *TunResponse) error {
+func (x *handlerTunServer) Send(m *TunResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *handleTunServer) Recv() (*TunRequest, error) {
+func (x *handlerTunServer) Recv() (*TunRequest, error) {
 	m := new(TunRequest)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
@@ -445,46 +234,14 @@ func (x *handleTunServer) Recv() (*TunRequest, error) {
 	return m, nil
 }
 
-func _Handle_Eth_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(HandleServer).Eth(&handleEthServer{stream})
-}
-
-type Handle_EthServer interface {
-	Send(*EthResponse) error
-	Recv() (*EthRequest, error)
-	grpc.ServerStream
-}
-
-type handleEthServer struct {
-	grpc.ServerStream
-}
-
-func (x *handleEthServer) Send(m *EthResponse) error {
-	return x.ServerStream.SendMsg(m)
-}
-
-func (x *handleEthServer) Recv() (*EthRequest, error) {
-	m := new(EthRequest)
-	if err := x.ServerStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-var _Handle_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "pb.Handle",
-	HandlerType: (*HandleServer)(nil),
+var _Handler_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "pb.Handler",
+	HandlerType: (*HandlerServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{
 		{
 			StreamName:    "Tun",
-			Handler:       _Handle_Tun_Handler,
-			ServerStreams: true,
-			ClientStreams: true,
-		},
-		{
-			StreamName:    "Eth",
-			Handler:       _Handle_Eth_Handler,
+			Handler:       _Handler_Tun_Handler,
 			ServerStreams: true,
 			ClientStreams: true,
 		},
@@ -552,128 +309,6 @@ func (m *TunResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *EthRequest) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *EthRequest) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *EthRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if len(m.Uuid) > 0 {
-		i -= len(m.Uuid)
-		copy(dAtA[i:], m.Uuid)
-		i = encodeVarintPb(dAtA, i, uint64(len(m.Uuid)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Hostname) > 0 {
-		i -= len(m.Hostname)
-		copy(dAtA[i:], m.Hostname)
-		i = encodeVarintPb(dAtA, i, uint64(len(m.Hostname)))
-		i--
-		dAtA[i] = 0xa
-	}
-	return len(dAtA) - i, nil
-}
-
-func (m *EthResponse) Marshal() (dAtA []byte, err error) {
-	size := m.Size()
-	dAtA = make([]byte, size)
-	n, err := m.MarshalToSizedBuffer(dAtA[:size])
-	if err != nil {
-		return nil, err
-	}
-	return dAtA[:n], nil
-}
-
-func (m *EthResponse) MarshalTo(dAtA []byte) (int, error) {
-	size := m.Size()
-	return m.MarshalToSizedBuffer(dAtA[:size])
-}
-
-func (m *EthResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
-	i := len(dAtA)
-	_ = i
-	var l int
-	_ = l
-	if m.ExpiredAt != 0 {
-		i = encodeVarintPb(dAtA, i, uint64(m.ExpiredAt))
-		i--
-		dAtA[i] = 0x2
-		i--
-		dAtA[i] = 0xd8
-	}
-	if m.UpdatedAt != 0 {
-		i = encodeVarintPb(dAtA, i, uint64(m.UpdatedAt))
-		i--
-		dAtA[i] = 0x2
-		i--
-		dAtA[i] = 0xd0
-	}
-	if m.CreatedAt != 0 {
-		i = encodeVarintPb(dAtA, i, uint64(m.CreatedAt))
-		i--
-		dAtA[i] = 0x2
-		i--
-		dAtA[i] = 0xc8
-	}
-	if len(m.Routes) > 0 {
-		for iNdEx := len(m.Routes) - 1; iNdEx >= 0; iNdEx-- {
-			i -= len(m.Routes[iNdEx])
-			copy(dAtA[i:], m.Routes[iNdEx])
-			i = encodeVarintPb(dAtA, i, uint64(len(m.Routes[iNdEx])))
-			i--
-			dAtA[i] = 0x2a
-		}
-	}
-	if len(m.Nameservers) > 0 {
-		for iNdEx := len(m.Nameservers) - 1; iNdEx >= 0; iNdEx-- {
-			i -= len(m.Nameservers[iNdEx])
-			copy(dAtA[i:], m.Nameservers[iNdEx])
-			i = encodeVarintPb(dAtA, i, uint64(len(m.Nameservers[iNdEx])))
-			i--
-			dAtA[i] = 0x22
-		}
-	}
-	if len(m.Broadcast) > 0 {
-		i -= len(m.Broadcast)
-		copy(dAtA[i:], m.Broadcast)
-		i = encodeVarintPb(dAtA, i, uint64(len(m.Broadcast)))
-		i--
-		dAtA[i] = 0x1a
-	}
-	if len(m.Netmask) > 0 {
-		i -= len(m.Netmask)
-		copy(dAtA[i:], m.Netmask)
-		i = encodeVarintPb(dAtA, i, uint64(len(m.Netmask)))
-		i--
-		dAtA[i] = 0x12
-	}
-	if len(m.Ipaddr) > 0 {
-		for iNdEx := len(m.Ipaddr) - 1; iNdEx >= 0; iNdEx-- {
-			i -= len(m.Ipaddr[iNdEx])
-			copy(dAtA[i:], m.Ipaddr[iNdEx])
-			i = encodeVarintPb(dAtA, i, uint64(len(m.Ipaddr[iNdEx])))
-			i--
-			dAtA[i] = 0xa
-		}
-	}
-	return len(dAtA) - i, nil
-}
-
 func encodeVarintPb(dAtA []byte, offset int, v uint64) int {
 	offset -= sovPb(v)
 	base := offset
@@ -707,67 +342,6 @@ func (m *TunResponse) Size() (n int) {
 	l = len(m.Data)
 	if l > 0 {
 		n += 1 + l + sovPb(uint64(l))
-	}
-	return n
-}
-
-func (m *EthRequest) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	l = len(m.Hostname)
-	if l > 0 {
-		n += 1 + l + sovPb(uint64(l))
-	}
-	l = len(m.Uuid)
-	if l > 0 {
-		n += 1 + l + sovPb(uint64(l))
-	}
-	return n
-}
-
-func (m *EthResponse) Size() (n int) {
-	if m == nil {
-		return 0
-	}
-	var l int
-	_ = l
-	if len(m.Ipaddr) > 0 {
-		for _, b := range m.Ipaddr {
-			l = len(b)
-			n += 1 + l + sovPb(uint64(l))
-		}
-	}
-	l = len(m.Netmask)
-	if l > 0 {
-		n += 1 + l + sovPb(uint64(l))
-	}
-	l = len(m.Broadcast)
-	if l > 0 {
-		n += 1 + l + sovPb(uint64(l))
-	}
-	if len(m.Nameservers) > 0 {
-		for _, b := range m.Nameservers {
-			l = len(b)
-			n += 1 + l + sovPb(uint64(l))
-		}
-	}
-	if len(m.Routes) > 0 {
-		for _, b := range m.Routes {
-			l = len(b)
-			n += 1 + l + sovPb(uint64(l))
-		}
-	}
-	if m.CreatedAt != 0 {
-		n += 2 + sovPb(uint64(m.CreatedAt))
-	}
-	if m.UpdatedAt != 0 {
-		n += 2 + sovPb(uint64(m.UpdatedAt))
-	}
-	if m.ExpiredAt != 0 {
-		n += 2 + sovPb(uint64(m.ExpiredAt))
 	}
 	return n
 }
@@ -925,395 +499,6 @@ func (m *TunResponse) Unmarshal(dAtA []byte) error {
 				m.Data = []byte{}
 			}
 			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipPb(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthPb
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *EthRequest) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowPb
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: EthRequest: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EthRequest: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Hostname", wireType)
-			}
-			var byteLen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				byteLen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if byteLen < 0 {
-				return ErrInvalidLengthPb
-			}
-			postIndex := iNdEx + byteLen
-			if postIndex < 0 {
-				return ErrInvalidLengthPb
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Hostname = append(m.Hostname[:0], dAtA[iNdEx:postIndex]...)
-			if m.Hostname == nil {
-				m.Hostname = []byte{}
-			}
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Uuid", wireType)
-			}
-			var byteLen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				byteLen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if byteLen < 0 {
-				return ErrInvalidLengthPb
-			}
-			postIndex := iNdEx + byteLen
-			if postIndex < 0 {
-				return ErrInvalidLengthPb
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Uuid = append(m.Uuid[:0], dAtA[iNdEx:postIndex]...)
-			if m.Uuid == nil {
-				m.Uuid = []byte{}
-			}
-			iNdEx = postIndex
-		default:
-			iNdEx = preIndex
-			skippy, err := skipPb(dAtA[iNdEx:])
-			if err != nil {
-				return err
-			}
-			if (skippy < 0) || (iNdEx+skippy) < 0 {
-				return ErrInvalidLengthPb
-			}
-			if (iNdEx + skippy) > l {
-				return io.ErrUnexpectedEOF
-			}
-			iNdEx += skippy
-		}
-	}
-
-	if iNdEx > l {
-		return io.ErrUnexpectedEOF
-	}
-	return nil
-}
-func (m *EthResponse) Unmarshal(dAtA []byte) error {
-	l := len(dAtA)
-	iNdEx := 0
-	for iNdEx < l {
-		preIndex := iNdEx
-		var wire uint64
-		for shift := uint(0); ; shift += 7 {
-			if shift >= 64 {
-				return ErrIntOverflowPb
-			}
-			if iNdEx >= l {
-				return io.ErrUnexpectedEOF
-			}
-			b := dAtA[iNdEx]
-			iNdEx++
-			wire |= uint64(b&0x7F) << shift
-			if b < 0x80 {
-				break
-			}
-		}
-		fieldNum := int32(wire >> 3)
-		wireType := int(wire & 0x7)
-		if wireType == 4 {
-			return fmt.Errorf("proto: EthResponse: wiretype end group for non-group")
-		}
-		if fieldNum <= 0 {
-			return fmt.Errorf("proto: EthResponse: illegal tag %d (wire type %d)", fieldNum, wire)
-		}
-		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Ipaddr", wireType)
-			}
-			var byteLen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				byteLen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if byteLen < 0 {
-				return ErrInvalidLengthPb
-			}
-			postIndex := iNdEx + byteLen
-			if postIndex < 0 {
-				return ErrInvalidLengthPb
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Ipaddr = append(m.Ipaddr, make([]byte, postIndex-iNdEx))
-			copy(m.Ipaddr[len(m.Ipaddr)-1], dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 2:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Netmask", wireType)
-			}
-			var byteLen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				byteLen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if byteLen < 0 {
-				return ErrInvalidLengthPb
-			}
-			postIndex := iNdEx + byteLen
-			if postIndex < 0 {
-				return ErrInvalidLengthPb
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Netmask = append(m.Netmask[:0], dAtA[iNdEx:postIndex]...)
-			if m.Netmask == nil {
-				m.Netmask = []byte{}
-			}
-			iNdEx = postIndex
-		case 3:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Broadcast", wireType)
-			}
-			var byteLen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				byteLen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if byteLen < 0 {
-				return ErrInvalidLengthPb
-			}
-			postIndex := iNdEx + byteLen
-			if postIndex < 0 {
-				return ErrInvalidLengthPb
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Broadcast = append(m.Broadcast[:0], dAtA[iNdEx:postIndex]...)
-			if m.Broadcast == nil {
-				m.Broadcast = []byte{}
-			}
-			iNdEx = postIndex
-		case 4:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Nameservers", wireType)
-			}
-			var byteLen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				byteLen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if byteLen < 0 {
-				return ErrInvalidLengthPb
-			}
-			postIndex := iNdEx + byteLen
-			if postIndex < 0 {
-				return ErrInvalidLengthPb
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Nameservers = append(m.Nameservers, make([]byte, postIndex-iNdEx))
-			copy(m.Nameservers[len(m.Nameservers)-1], dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 5:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Routes", wireType)
-			}
-			var byteLen int
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				byteLen |= int(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			if byteLen < 0 {
-				return ErrInvalidLengthPb
-			}
-			postIndex := iNdEx + byteLen
-			if postIndex < 0 {
-				return ErrInvalidLengthPb
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Routes = append(m.Routes, make([]byte, postIndex-iNdEx))
-			copy(m.Routes[len(m.Routes)-1], dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
-		case 41:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field CreatedAt", wireType)
-			}
-			m.CreatedAt = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.CreatedAt |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 42:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field UpdatedAt", wireType)
-			}
-			m.UpdatedAt = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.UpdatedAt |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-		case 43:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field ExpiredAt", wireType)
-			}
-			m.ExpiredAt = 0
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowPb
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				m.ExpiredAt |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
 		default:
 			iNdEx = preIndex
 			skippy, err := skipPb(dAtA[iNdEx:])
