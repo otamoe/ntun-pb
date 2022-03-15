@@ -4,14 +4,53 @@ syntax = "proto3";
 package pb;
 
 
+// 隧道 请求
 message TunRequest {
     bytes data = 1;
 }
 
+
+// 隧道 响应
 message TunResponse {
     bytes data = 1;
 }
 
+// 网卡 请求
+message EthRequest {
+    bytes host = 1;
+    bytes uuid = 2;
+}
+
+// 网卡 响应
+message EthResponse {
+    //  ip 地址
+    repeated bytes ipaddr = 1;
+    
+    // 子网 地址
+    bytes netmask = 2;
+    
+    // 广播 地址
+    bytes broadcast = 3;
+    
+    // dns 地址
+    repeated bytes nameservers = 4;
+
+    // 路由表
+    repeated bytes routes = 5;
+    
+    // 创建 时间
+    uint64 createdAt = 41;
+    
+    // 更新 时间
+    uint64 updatedAt = 42;
+    
+    // 过期 时间
+    uint64 expiredAt = 43;
+}
+
+
+
 service Handle {
     rpc Tun(stream TunRequest) returns (stream TunResponse) {}
+    rpc Eth(stream EthRequest) returns (stream EthResponse) {}
 }
