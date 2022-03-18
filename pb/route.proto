@@ -1,0 +1,44 @@
+// protoc --gogofaster_out=plugins=grpc:.. *.proto
+syntax = "proto3";
+package pb;
+import "state.proto";
+
+message Route {
+    enum Action {
+        // 拒绝
+        REJECT = 0;
+
+        // 接收
+        ACCEPT = 1;
+
+        // 重定d向
+        REDIRECT = 2;
+    }
+
+
+    // 路由 id
+    string id = 1;
+
+    // 来源
+    string source = 2;
+
+    // 目标
+    string destination = 3;
+
+
+    // 动作
+    Action action = 10;
+    
+    // 状态
+    State state = 20;
+    
+    // createdAt
+    uint64 createdAt = 30;
+
+    // updatedAt
+    uint64 updatedAt = 31;
+
+    // expiredAt
+    uint64 expiredAt = 33;
+}
+

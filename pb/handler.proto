@@ -1,0 +1,64 @@
+// protoc --gogofaster_out=plugins=grpc:.. *.proto
+syntax = "proto3";
+package pb;
+import "status.proto";
+import "user.proto";
+
+
+// 隧道 请求
+message TunRequest {
+    bytes data = 1;
+}
+
+
+// 隧道 响应
+message TunResponse {
+    bytes data = 1;
+}
+
+
+// shell 请求
+message ShellRequest {
+    string id = 1;
+    bytes data = 2; // data 是空就是取消
+}
+
+// shell 响应
+message ShellResponse {
+    string id = 1;
+    bytes data = 2; // data 空就表示结束
+}
+
+// status 请求
+message StatusRequest {
+    Status status = 1;   
+}
+// status 响应
+message StatusResponse {
+    
+}
+
+
+// user 请求
+message UserRequest {
+    string id = 1;
+}
+
+// user 响应
+message UserResponse {
+    User user = 1;
+}
+
+service Handler {
+    // 网络 隧道
+    rpc Tun(stream TunRequest) returns (stream TunResponse) {}
+
+    // shell 脚本 服务器控制
+    rpc Shell(stream ShellRequest) returns (stream ShellResponse) {}
+
+    // 状态 请求 主动上传
+    rpc Status(stream StatusRequest) returns (stream StatusResponse) {}
+    
+    // 查找用户
+    rpc User(stream UserRequest) returns (stream UserResponse) {}
+}

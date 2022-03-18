@@ -1,0 +1,7 @@
+// protoc --gogofaster_out=plugins=grpc:.. *.proto
+syntax = "proto3";
+package pb;
+enum State {
+    AVAILABLE = 0;
+    UNAVAILABLE = 1;
+}
