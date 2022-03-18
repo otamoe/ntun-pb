@@ -3,6 +3,7 @@ syntax = "proto3";
 package pb;
 import "state.proto";
 
+
 message Route {
     enum Action {
         // 拒绝
@@ -33,12 +34,12 @@ message Route {
     State state = 20;
     
     // createdAt
-    uint64 createdAt = 30;
+    int64 createdAt = 30;
 
     // updatedAt
-    uint64 updatedAt = 31;
+    int64 updatedAt = 31;
 
     // expiredAt
-    uint64 expiredAt = 33;
+    int64 expiredAt = 33;
 }
 

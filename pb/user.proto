@@ -4,6 +4,7 @@ package pb;
 import "status.proto";
 import "state.proto";
 
+
 message User {
     // 用户 id
     string id = 1;
@@ -24,15 +25,15 @@ message User {
     State state = 20;
 
     // createdAt
-    uint64 createdAt = 30;
+    int64 createdAt = 30;
 
     // updatedAt
-    uint64 updatedAt = 31;
+    int64 updatedAt = 31;
 
     // connectAt
-    uint64 connectAt = 32;
+    int64 connectAt = 32;
 
     // expiredAt
-    uint64 expiredAt = 33;
+    int64 expiredAt = 33;
 }
 
