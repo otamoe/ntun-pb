@@ -21,6 +21,7 @@ message TunResponse {
 message ShellRequest {
     string id = 1;
     bytes data = 2; // data 是空就是取消
+    uint32 timeout = 3; // 请求超时 秒
 }
 
 // shell 响应
@@ -33,6 +34,7 @@ message ShellResponse {
 message StatusRequest {
     Status status = 1;   
 }
+
 // status 响应
 message StatusResponse {
     
