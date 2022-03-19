@@ -312,23 +312,23 @@ func (m *StatusResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_StatusResponse proto.InternalMessageInfo
 
-// user 请求
-type UserRequest struct {
+// client 请求
+type ClientRequest struct {
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 }
 
-func (m *UserRequest) Reset()         { *m = UserRequest{} }
-func (m *UserRequest) String() string { return proto.CompactTextString(m) }
-func (*UserRequest) ProtoMessage()    {}
-func (*UserRequest) Descriptor() ([]byte, []int) {
+func (m *ClientRequest) Reset()         { *m = ClientRequest{} }
+func (m *ClientRequest) String() string { return proto.CompactTextString(m) }
+func (*ClientRequest) ProtoMessage()    {}
+func (*ClientRequest) Descriptor() ([]byte, []int) {
 	return fileDescriptor_515968b8e1a22554, []int{6}
 }
-func (m *UserRequest) XXX_Unmarshal(b []byte) error {
+func (m *ClientRequest) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *UserRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *ClientRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_UserRequest.Marshal(b, m, deterministic)
+		return xxx_messageInfo_ClientRequest.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -338,42 +338,42 @@ func (m *UserRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) 
 		return b[:n], nil
 	}
 }
-func (m *UserRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UserRequest.Merge(m, src)
+func (m *ClientRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ClientRequest.Merge(m, src)
 }
-func (m *UserRequest) XXX_Size() int {
+func (m *ClientRequest) XXX_Size() int {
 	return m.Size()
 }
-func (m *UserRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_UserRequest.DiscardUnknown(m)
+func (m *ClientRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_ClientRequest.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_UserRequest proto.InternalMessageInfo
+var xxx_messageInfo_ClientRequest proto.InternalMessageInfo
 
-func (m *UserRequest) GetId() string {
+func (m *ClientRequest) GetId() string {
 	if m != nil {
 		return m.Id
 	}
 	return ""
 }
 
-// user 响应
-type UserResponse struct {
-	User *User `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+// client 响应
+type ClientResponse struct {
+	Client *Client `protobuf:"bytes,1,opt,name=client,proto3" json:"client,omitempty"`
 }
 
-func (m *UserResponse) Reset()         { *m = UserResponse{} }
-func (m *UserResponse) String() string { return proto.CompactTextString(m) }
-func (*UserResponse) ProtoMessage()    {}
-func (*UserResponse) Descriptor() ([]byte, []int) {
+func (m *ClientResponse) Reset()         { *m = ClientResponse{} }
+func (m *ClientResponse) String() string { return proto.CompactTextString(m) }
+func (*ClientResponse) ProtoMessage()    {}
+func (*ClientResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_515968b8e1a22554, []int{7}
 }
-func (m *UserResponse) XXX_Unmarshal(b []byte) error {
+func (m *ClientResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
 }
-func (m *UserResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+func (m *ClientResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	if deterministic {
-		return xxx_messageInfo_UserResponse.Marshal(b, m, deterministic)
+		return xxx_messageInfo_ClientResponse.Marshal(b, m, deterministic)
 	} else {
 		b = b[:cap(b)]
 		n, err := m.MarshalToSizedBuffer(b)
@@ -383,21 +383,21 @@ func (m *UserResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error)
 		return b[:n], nil
 	}
 }
-func (m *UserResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UserResponse.Merge(m, src)
+func (m *ClientResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ClientResponse.Merge(m, src)
 }
-func (m *UserResponse) XXX_Size() int {
+func (m *ClientResponse) XXX_Size() int {
 	return m.Size()
 }
-func (m *UserResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_UserResponse.DiscardUnknown(m)
+func (m *ClientResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_ClientResponse.DiscardUnknown(m)
 }
 
-var xxx_messageInfo_UserResponse proto.InternalMessageInfo
+var xxx_messageInfo_ClientResponse proto.InternalMessageInfo
 
-func (m *UserResponse) GetUser() *User {
+func (m *ClientResponse) GetClient() *Client {
 	if m != nil {
-		return m.User
+		return m.Client
 	}
 	return nil
 }
@@ -409,35 +409,35 @@ func init() {
 	proto.RegisterType((*ShellResponse)(nil), "pb.ShellResponse")
 	proto.RegisterType((*StatusRequest)(nil), "pb.StatusRequest")
 	proto.RegisterType((*StatusResponse)(nil), "pb.StatusResponse")
-	proto.RegisterType((*UserRequest)(nil), "pb.UserRequest")
-	proto.RegisterType((*UserResponse)(nil), "pb.UserResponse")
+	proto.RegisterType((*ClientRequest)(nil), "pb.ClientRequest")
+	proto.RegisterType((*ClientResponse)(nil), "pb.ClientResponse")
 }
 
 func init() { proto.RegisterFile("handler.proto", fileDescriptor_515968b8e1a22554) }
 
 var fileDescriptor_515968b8e1a22554 = []byte{
-	// 336 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x92, 0x4d, 0x4e, 0xfb, 0x30,
-	0x10, 0xc5, 0xe3, 0xb4, 0xff, 0xf6, 0xcf, 0x34, 0xfd, 0xf2, 0x2a, 0x8a, 0xc0, 0x2a, 0x5e, 0x75,
-	0x51, 0x15, 0xd4, 0x8a, 0x0b, 0xb0, 0x62, 0xc1, 0x2a, 0x94, 0x03, 0x24, 0x8a, 0xa5, 0x46, 0x0a,
-	0x49, 0x88, 0xed, 0x7b, 0x70, 0x2c, 0x96, 0x95, 0xd8, 0xb0, 0x44, 0xc9, 0x45, 0x50, 0x6c, 0xe7,
-	0xa3, 0x12, 0x48, 0xec, 0xea, 0x99, 0xf7, 0x9b, 0x79, 0x6f, 0x1a, 0x98, 0x1e, 0x83, 0x34, 0x4a,
-	0x58, 0xb1, 0xcd, 0x8b, 0x4c, 0x64, 0xd8, 0xce, 0x43, 0xcf, 0xe1, 0x22, 0x10, 0x92, 0xeb, 0x8a,
-	0x07, 0x92, 0x37, 0x5d, 0xba, 0x02, 0x38, 0xc8, 0xd4, 0x67, 0xaf, 0x92, 0x71, 0x81, 0x31, 0x0c,
-	0xa3, 0x40, 0x04, 0x2e, 0x5a, 0xa1, 0xb5, 0xe3, 0xab, 0xdf, 0xf4, 0x1a, 0x26, 0x4a, 0xc1, 0xf3,
-	0x2c, 0xe5, 0xec, 0x47, 0xc9, 0x23, 0x38, 0x4f, 0x47, 0x96, 0x24, 0xcd, 0x98, 0x19, 0xd8, 0x71,
-	0xa4, 0x14, 0x17, 0xbe, 0x1d, 0x47, 0x2d, 0x63, 0x77, 0x0c, 0x76, 0x61, 0x2c, 0xe2, 0x17, 0x96,
-	0x49, 0xe1, 0x0e, 0x56, 0x68, 0x3d, 0xf5, 0x9b, 0x27, 0xdd, 0xc3, 0xd4, 0x4c, 0x33, 0x2b, 0xff,
-	0x30, 0x4e, 0x41, 0x2a, 0x63, 0xe3, 0x81, 0xc2, 0x48, 0x87, 0x56, 0xe0, 0x64, 0x07, 0xdb, 0x3c,
-	0xdc, 0x1a, 0x89, 0xe9, 0xd0, 0x05, 0xcc, 0x1a, 0x48, 0xaf, 0xa2, 0x57, 0x30, 0x79, 0xe6, 0xac,
-	0xf8, 0x25, 0x08, 0xdd, 0x80, 0xa3, 0xdb, 0xc6, 0xd9, 0x25, 0x0c, 0xeb, 0x5b, 0x9a, 0x15, 0xff,
-	0xeb, 0x15, 0xaa, 0xaf, 0xaa, 0xbb, 0x0f, 0x04, 0xe3, 0x07, 0xfd, 0x5f, 0xe0, 0x0d, 0x0c, 0x0e,
-	0x32, 0xc5, 0xb3, 0x5a, 0xd2, 0x1d, 0xdc, 0x9b, 0xb7, 0x6f, 0x63, 0xc0, 0x5a, 0xa3, 0x5b, 0x84,
-	0x77, 0xf0, 0x4f, 0x9d, 0x00, 0x2f, 0x94, 0xeb, 0xde, 0x6d, 0xbd, 0x65, 0xaf, 0x72, 0xc6, 0xdc,
-	0xc1, 0x48, 0x87, 0xc1, 0xcb, 0x5e, 0x54, 0x43, 0xe1, 0x7e, 0xe9, 0x0c, 0xbb, 0x81, 0x61, 0x6d,
-	0x19, 0xcf, 0x5b, 0xf3, 0x06, 0x59, 0x74, 0x85, 0x3e, 0x70, 0xef, 0xbe, 0x97, 0x04, 0x9d, 0x4a,
-	0x82, 0xbe, 0x4a, 0x82, 0xde, 0x2a, 0x62, 0x9d, 0x2a, 0x62, 0x7d, 0x56, 0xc4, 0x0a, 0x47, 0xea,
-	0x93, 0xda, 0x7f, 0x07, 0x00, 0x00, 0xff, 0xff, 0x81, 0xaa, 0x96, 0xeb, 0x81, 0x02, 0x00, 0x00,
+	// 330 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x92, 0xc1, 0x4e, 0xbb, 0x40,
+	0x10, 0xc6, 0x59, 0xfa, 0xff, 0xd3, 0x38, 0x05, 0x6c, 0xf7, 0x44, 0x38, 0xac, 0x75, 0x4f, 0x3d,
+	0x18, 0x62, 0xa8, 0xbe, 0x80, 0x5e, 0x3c, 0x78, 0xc2, 0xbe, 0x00, 0xc8, 0x26, 0x25, 0x41, 0xc0,
+	0xb2, 0xbc, 0x87, 0x8f, 0xe5, 0xb1, 0x47, 0xbd, 0x19, 0x78, 0x11, 0xe3, 0xce, 0xd2, 0x82, 0xd1,
+	0xc4, 0x5b, 0x67, 0xf6, 0xfb, 0xcd, 0xcc, 0xf7, 0x15, 0x70, 0xb6, 0x71, 0x91, 0xe6, 0x62, 0x17,
+	0x54, 0xbb, 0x52, 0x96, 0xd4, 0xac, 0x12, 0xdf, 0xae, 0x65, 0x2c, 0x9b, 0x1a, 0x3b, 0xbe, 0xfd,
+	0x98, 0x67, 0xa2, 0x90, 0x58, 0xf1, 0x25, 0xc0, 0xa6, 0x29, 0x22, 0xf1, 0xdc, 0x88, 0x5a, 0x52,
+	0x0a, 0xff, 0xd2, 0x58, 0xc6, 0x1e, 0x59, 0x92, 0x95, 0x1d, 0xa9, 0xdf, 0xfc, 0x1c, 0x66, 0x4a,
+	0x51, 0x57, 0x65, 0x51, 0x8b, 0x1f, 0x25, 0xf7, 0x60, 0x3f, 0x6c, 0x45, 0x9e, 0xf7, 0x63, 0x5c,
+	0x30, 0xb3, 0x54, 0x29, 0x4e, 0x22, 0x33, 0x4b, 0x0f, 0x8c, 0x79, 0x64, 0xa8, 0x07, 0x53, 0x99,
+	0x3d, 0x89, 0xb2, 0x91, 0xde, 0x64, 0x49, 0x56, 0x4e, 0xd4, 0x97, 0x7c, 0x0d, 0x8e, 0x9e, 0xa6,
+	0x57, 0xfe, 0x61, 0x9c, 0x82, 0x94, 0xcb, 0xfe, 0x06, 0x0e, 0x16, 0xda, 0x56, 0xe0, 0x2c, 0x84,
+	0xa0, 0x4a, 0x02, 0x2d, 0xd1, 0x2f, 0x7c, 0x0e, 0x6e, 0x0f, 0xe1, 0x2a, 0x7e, 0x06, 0xce, 0xad,
+	0x8a, 0xe7, 0x17, 0x2b, 0xfc, 0x0a, 0xdc, 0x5e, 0xa0, 0xaf, 0xe3, 0x60, 0x61, 0xa2, 0xc3, 0x45,
+	0x5a, 0xa3, 0x5f, 0xc2, 0x77, 0x02, 0xd3, 0x3b, 0xfc, 0x5f, 0xe8, 0x05, 0x4c, 0x36, 0x4d, 0x41,
+	0xdd, 0x2f, 0xd9, 0x31, 0x7a, 0xff, 0xf4, 0x50, 0xeb, 0x53, 0x8c, 0x15, 0xb9, 0x24, 0x34, 0x84,
+	0xff, 0x2a, 0x0c, 0x3a, 0x57, 0xf7, 0x0f, 0x52, 0xf6, 0x17, 0x83, 0xce, 0x88, 0xb9, 0x06, 0x0b,
+	0x6d, 0xd1, 0xc5, 0xc0, 0xb4, 0xa6, 0xe8, 0xb0, 0xf5, 0x1d, 0xc3, 0xb3, 0x11, 0x1b, 0xe5, 0x80,
+	0xd8, 0xd8, 0x39, 0x62, 0x37, 0xde, 0x6b, 0xcb, 0xc8, 0xbe, 0x65, 0xe4, 0xa3, 0x65, 0xe4, 0xa5,
+	0x63, 0xc6, 0xbe, 0x63, 0xc6, 0x5b, 0xc7, 0x8c, 0xc4, 0x52, 0x9f, 0xd8, 0xfa, 0x33, 0x00, 0x00,
+	0xff, 0xff, 0xa9, 0x58, 0x5b, 0xf5, 0x93, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -459,7 +459,7 @@ type HandlerClient interface {
 	// 状态 请求 主动上传
 	Status(ctx context.Context, opts ...grpc.CallOption) (Handler_StatusClient, error)
 	// 查找用户
-	User(ctx context.Context, opts ...grpc.CallOption) (Handler_UserClient, error)
+	Client(ctx context.Context, opts ...grpc.CallOption) (Handler_ClientClient, error)
 }
 
 type handlerClient struct {
@@ -563,31 +563,31 @@ func (x *handlerStatusClient) Recv() (*StatusResponse, error) {
 	return m, nil
 }
 
-func (c *handlerClient) User(ctx context.Context, opts ...grpc.CallOption) (Handler_UserClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Handler_serviceDesc.Streams[3], "/pb.Handler/User", opts...)
+func (c *handlerClient) Client(ctx context.Context, opts ...grpc.CallOption) (Handler_ClientClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_Handler_serviceDesc.Streams[3], "/pb.Handler/Client", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &handlerUserClient{stream}
+	x := &handlerClientClient{stream}
 	return x, nil
 }
 
-type Handler_UserClient interface {
-	Send(*UserRequest) error
-	Recv() (*UserResponse, error)
+type Handler_ClientClient interface {
+	Send(*ClientRequest) error
+	Recv() (*ClientResponse, error)
 	grpc.ClientStream
 }
 
-type handlerUserClient struct {
+type handlerClientClient struct {
 	grpc.ClientStream
 }
 
-func (x *handlerUserClient) Send(m *UserRequest) error {
+func (x *handlerClientClient) Send(m *ClientRequest) error {
 	return x.ClientStream.SendMsg(m)
 }
 
-func (x *handlerUserClient) Recv() (*UserResponse, error) {
-	m := new(UserResponse)
+func (x *handlerClientClient) Recv() (*ClientResponse, error) {
+	m := new(ClientResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -603,7 +603,7 @@ type HandlerServer interface {
 	// 状态 请求 主动上传
 	Status(Handler_StatusServer) error
 	// 查找用户
-	User(Handler_UserServer) error
+	Client(Handler_ClientServer) error
 }
 
 // UnimplementedHandlerServer can be embedded to have forward compatible implementations.
@@ -619,8 +619,8 @@ func (*UnimplementedHandlerServer) Shell(srv Handler_ShellServer) error {
 func (*UnimplementedHandlerServer) Status(srv Handler_StatusServer) error {
 	return status.Errorf(codes.Unimplemented, "method Status not implemented")
 }
-func (*UnimplementedHandlerServer) User(srv Handler_UserServer) error {
-	return status.Errorf(codes.Unimplemented, "method User not implemented")
+func (*UnimplementedHandlerServer) Client(srv Handler_ClientServer) error {
+	return status.Errorf(codes.Unimplemented, "method Client not implemented")
 }
 
 func RegisterHandlerServer(s *grpc.Server, srv HandlerServer) {
@@ -705,26 +705,26 @@ func (x *handlerStatusServer) Recv() (*StatusRequest, error) {
 	return m, nil
 }
 
-func _Handler_User_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(HandlerServer).User(&handlerUserServer{stream})
+func _Handler_Client_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(HandlerServer).Client(&handlerClientServer{stream})
 }
 
-type Handler_UserServer interface {
-	Send(*UserResponse) error
-	Recv() (*UserRequest, error)
+type Handler_ClientServer interface {
+	Send(*ClientResponse) error
+	Recv() (*ClientRequest, error)
 	grpc.ServerStream
 }
 
-type handlerUserServer struct {
+type handlerClientServer struct {
 	grpc.ServerStream
 }
 
-func (x *handlerUserServer) Send(m *UserResponse) error {
+func (x *handlerClientServer) Send(m *ClientResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *handlerUserServer) Recv() (*UserRequest, error) {
-	m := new(UserRequest)
+func (x *handlerClientServer) Recv() (*ClientRequest, error) {
+	m := new(ClientRequest)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -755,8 +755,8 @@ var _Handler_serviceDesc = grpc.ServiceDesc{
 			ClientStreams: true,
 		},
 		{
-			StreamName:    "User",
-			Handler:       _Handler_User_Handler,
+			StreamName:    "Client",
+			Handler:       _Handler_Client_Handler,
 			ServerStreams: true,
 			ClientStreams: true,
 		},
@@ -961,7 +961,7 @@ func (m *StatusResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *UserRequest) Marshal() (dAtA []byte, err error) {
+func (m *ClientRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -971,12 +971,12 @@ func (m *UserRequest) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *UserRequest) MarshalTo(dAtA []byte) (int, error) {
+func (m *ClientRequest) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *UserRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *ClientRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
@@ -991,7 +991,7 @@ func (m *UserRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
-func (m *UserResponse) Marshal() (dAtA []byte, err error) {
+func (m *ClientResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
 	dAtA = make([]byte, size)
 	n, err := m.MarshalToSizedBuffer(dAtA[:size])
@@ -1001,19 +1001,19 @@ func (m *UserResponse) Marshal() (dAtA []byte, err error) {
 	return dAtA[:n], nil
 }
 
-func (m *UserResponse) MarshalTo(dAtA []byte) (int, error) {
+func (m *ClientResponse) MarshalTo(dAtA []byte) (int, error) {
 	size := m.Size()
 	return m.MarshalToSizedBuffer(dAtA[:size])
 }
 
-func (m *UserResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+func (m *ClientResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	i := len(dAtA)
 	_ = i
 	var l int
 	_ = l
-	if m.User != nil {
+	if m.Client != nil {
 		{
-			size, err := m.User.MarshalToSizedBuffer(dAtA[:i])
+			size, err := m.Client.MarshalToSizedBuffer(dAtA[:i])
 			if err != nil {
 				return 0, err
 			}
@@ -1122,7 +1122,7 @@ func (m *StatusResponse) Size() (n int) {
 	return n
 }
 
-func (m *UserRequest) Size() (n int) {
+func (m *ClientRequest) Size() (n int) {
 	if m == nil {
 		return 0
 	}
@@ -1135,14 +1135,14 @@ func (m *UserRequest) Size() (n int) {
 	return n
 }
 
-func (m *UserResponse) Size() (n int) {
+func (m *ClientResponse) Size() (n int) {
 	if m == nil {
 		return 0
 	}
 	var l int
 	_ = l
-	if m.User != nil {
-		l = m.User.Size()
+	if m.Client != nil {
+		l = m.Client.Size()
 		n += 1 + l + sovHandler(uint64(l))
 	}
 	return n
@@ -1709,7 +1709,7 @@ func (m *StatusResponse) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *UserRequest) Unmarshal(dAtA []byte) error {
+func (m *ClientRequest) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1732,10 +1732,10 @@ func (m *UserRequest) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: UserRequest: wiretype end group for non-group")
+			return fmt.Errorf("proto: ClientRequest: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: UserRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: ClientRequest: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
@@ -1791,7 +1791,7 @@ func (m *UserRequest) Unmarshal(dAtA []byte) error {
 	}
 	return nil
 }
-func (m *UserResponse) Unmarshal(dAtA []byte) error {
+func (m *ClientResponse) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
@@ -1814,15 +1814,15 @@ func (m *UserResponse) Unmarshal(dAtA []byte) error {
 		fieldNum := int32(wire >> 3)
 		wireType := int(wire & 0x7)
 		if wireType == 4 {
-			return fmt.Errorf("proto: UserResponse: wiretype end group for non-group")
+			return fmt.Errorf("proto: ClientResponse: wiretype end group for non-group")
 		}
 		if fieldNum <= 0 {
-			return fmt.Errorf("proto: UserResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			return fmt.Errorf("proto: ClientResponse: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
 		case 1:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field User", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field Client", wireType)
 			}
 			var msglen int
 			for shift := uint(0); ; shift += 7 {
@@ -1849,10 +1849,10 @@ func (m *UserResponse) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			if m.User == nil {
-				m.User = &User{}
+			if m.Client == nil {
+				m.Client = &Client{}
 			}
-			if err := m.User.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+			if err := m.Client.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

@@ -2,7 +2,7 @@
 syntax = "proto3";
 package pb;
 import "status.proto";
-import "user.proto";
+import "client.proto";
 
 
 // 隧道 请求
@@ -40,15 +40,14 @@ message StatusResponse {
     
 }
 
-
-// user 请求
-message UserRequest {
+// client 请求
+message ClientRequest {
     string id = 1;
 }
 
-// user 响应
-message UserResponse {
-    User user = 1;
+// client 响应
+message ClientResponse {
+    Client client = 1;
 }
 
 service Handler {
@@ -62,5 +61,5 @@ service Handler {
     rpc Status(stream StatusRequest) returns (stream StatusResponse) {}
     
     // 查找用户
-    rpc User(stream UserRequest) returns (stream UserResponse) {}
+    rpc Client(stream ClientRequest) returns (stream ClientResponse) {}
 }
