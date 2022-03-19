@@ -15,6 +15,9 @@ message User {
     // 连接地址
     string address = 3;
 
+    // 备注
+    string remark = 4;
+
     // shell
     bool shell = 11;
 

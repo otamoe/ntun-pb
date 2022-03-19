@@ -26,6 +26,9 @@ message Route {
     // 目标
     string destination = 3;
 
+    // 备注
+    string remark = 4;
+
 
     // 动作
     Action action = 10;
