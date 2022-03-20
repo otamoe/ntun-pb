@@ -24,6 +24,9 @@ message Client {
     // 备注
     string remark = 6;
 
+    // online
+    bool online = 10;
+
     // shell
     bool shell = 11;
 
