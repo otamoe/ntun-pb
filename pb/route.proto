@@ -11,9 +11,6 @@ message Route {
 
         // 接收
         ACCEPT = 1;
-
-        // 重定d向
-        REDIRECT = 2;
     }
 
 

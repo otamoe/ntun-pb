@@ -20,14 +20,15 @@ message TunResponse {
 // shell 请求
 message ShellRequest {
     string id = 1;
-    bytes data = 2; // data 是空就是取消
-    uint32 timeout = 3; // 请求超时 秒
+    bytes data = 2;
+    uint32 timeout = 3;
 }
 
 // shell 响应
 message ShellResponse {
     string id = 1;
-    bytes data = 2; // data 空就表示结束
+    bytes data = 2;
+    int32 status = 3; // 退出状态 -1 还在执行, 0 = 成功 >0 = 其他错误
 }
 
 // status 请求
