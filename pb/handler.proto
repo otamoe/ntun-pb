@@ -2,6 +2,7 @@
 syntax = "proto3";
 package pb;
 import "status.proto";
+import "client.proto";
 
 
 // 隧道 请求
@@ -47,6 +48,7 @@ message CreateRequest {
 
 // Create 响应
 message CreateResponse {
+    Client client = 1;
 }
 
 service Handler {
