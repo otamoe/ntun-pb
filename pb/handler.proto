@@ -2,7 +2,6 @@
 syntax = "proto3";
 package pb;
 import "status.proto";
-import "client.proto";
 
 
 // 隧道 请求
@@ -41,14 +40,13 @@ message StatusResponse {
     
 }
 
-// client 请求
-message ClientRequest {
-    string id = 1;
+// Create 请求
+message CreateRequest {
+    
 }
 
-// client 响应
-message ClientResponse {
-    Client client = 1;
+// Create 响应
+message CreateResponse {
 }
 
 service Handler {
@@ -61,6 +59,6 @@ service Handler {
     // 状态 请求 主动上传
     rpc Status(stream StatusRequest) returns (stream StatusResponse) {}
     
-    // 查找用户
-    rpc Client(stream ClientRequest) returns (stream ClientResponse) {}
+    // 创建
+    rpc Create(CreateRequest) returns (CreateResponse) {}
 }
