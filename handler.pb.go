@@ -402,6 +402,126 @@ func (m *CreateResponse) GetClient() *Client {
 	return nil
 }
 
+type StreamRequest struct {
+	Tun    *TunRequest    `protobuf:"bytes,1,opt,name=tun,proto3" json:"tun,omitempty"`
+	Shell  *ShellRequest  `protobuf:"bytes,2,opt,name=shell,proto3" json:"shell,omitempty"`
+	Status *StatusRequest `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+}
+
+func (m *StreamRequest) Reset()         { *m = StreamRequest{} }
+func (m *StreamRequest) String() string { return proto.CompactTextString(m) }
+func (*StreamRequest) ProtoMessage()    {}
+func (*StreamRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_515968b8e1a22554, []int{8}
+}
+func (m *StreamRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *StreamRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_StreamRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *StreamRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamRequest.Merge(m, src)
+}
+func (m *StreamRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *StreamRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_StreamRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StreamRequest proto.InternalMessageInfo
+
+func (m *StreamRequest) GetTun() *TunRequest {
+	if m != nil {
+		return m.Tun
+	}
+	return nil
+}
+
+func (m *StreamRequest) GetShell() *ShellRequest {
+	if m != nil {
+		return m.Shell
+	}
+	return nil
+}
+
+func (m *StreamRequest) GetStatus() *StatusRequest {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+type StreamResponse struct {
+	Tun    *TunResponse    `protobuf:"bytes,1,opt,name=tun,proto3" json:"tun,omitempty"`
+	Shell  *ShellResponse  `protobuf:"bytes,2,opt,name=shell,proto3" json:"shell,omitempty"`
+	Status *StatusResponse `protobuf:"bytes,3,opt,name=status,proto3" json:"status,omitempty"`
+}
+
+func (m *StreamResponse) Reset()         { *m = StreamResponse{} }
+func (m *StreamResponse) String() string { return proto.CompactTextString(m) }
+func (*StreamResponse) ProtoMessage()    {}
+func (*StreamResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_515968b8e1a22554, []int{9}
+}
+func (m *StreamResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *StreamResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_StreamResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *StreamResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_StreamResponse.Merge(m, src)
+}
+func (m *StreamResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *StreamResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_StreamResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_StreamResponse proto.InternalMessageInfo
+
+func (m *StreamResponse) GetTun() *TunResponse {
+	if m != nil {
+		return m.Tun
+	}
+	return nil
+}
+
+func (m *StreamResponse) GetShell() *ShellResponse {
+	if m != nil {
+		return m.Shell
+	}
+	return nil
+}
+
+func (m *StreamResponse) GetStatus() *StatusResponse {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*TunRequest)(nil), "pb.TunRequest")
 	proto.RegisterType((*TunResponse)(nil), "pb.TunResponse")
@@ -411,34 +531,40 @@ func init() {
 	proto.RegisterType((*StatusResponse)(nil), "pb.StatusResponse")
 	proto.RegisterType((*CreateRequest)(nil), "pb.CreateRequest")
 	proto.RegisterType((*CreateResponse)(nil), "pb.CreateResponse")
+	proto.RegisterType((*StreamRequest)(nil), "pb.StreamRequest")
+	proto.RegisterType((*StreamResponse)(nil), "pb.StreamResponse")
 }
 
 func init() { proto.RegisterFile("handler.proto", fileDescriptor_515968b8e1a22554) }
 
 var fileDescriptor_515968b8e1a22554 = []byte{
-	// 345 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x52, 0xcd, 0x4e, 0xc2, 0x40,
-	0x18, 0xec, 0x16, 0x29, 0xf1, 0xa3, 0x2d, 0xb0, 0x07, 0xd3, 0xf4, 0xb0, 0xc1, 0x3d, 0x71, 0x30,
-	0x44, 0x41, 0x5f, 0x40, 0x2e, 0xc6, 0xc4, 0xcb, 0xc2, 0x0b, 0x14, 0xbb, 0x09, 0x4d, 0x6a, 0x5b,
-	0xe9, 0xf6, 0x3d, 0x7c, 0x2c, 0x8f, 0x5c, 0x4c, 0x3c, 0x1a, 0xfa, 0x22, 0x86, 0xfd, 0x29, 0x6d,
-	0xe2, 0xc1, 0x1b, 0xdf, 0x30, 0x33, 0xdf, 0xcc, 0xb7, 0x05, 0x6f, 0x17, 0x65, 0x71, 0xca, 0xf7,
-	0xf3, 0x62, 0x9f, 0x8b, 0x1c, 0xdb, 0xc5, 0x36, 0x74, 0x4b, 0x11, 0x89, 0xaa, 0x54, 0x48, 0xe8,
-	0xbe, 0xa6, 0x09, 0xcf, 0x84, 0x9a, 0xe8, 0x14, 0x60, 0x53, 0x65, 0x8c, 0xbf, 0x57, 0xbc, 0x14,
-	0x18, 0xc3, 0x45, 0x1c, 0x89, 0x28, 0x40, 0x53, 0x34, 0x73, 0x99, 0xfc, 0x4d, 0xaf, 0x61, 0x28,
-	0x19, 0x65, 0x91, 0x67, 0x25, 0xff, 0x93, 0xf2, 0x0c, 0xee, 0x7a, 0xc7, 0xd3, 0xd4, 0xd8, 0xf8,
-	0x60, 0x27, 0xb1, 0x64, 0x5c, 0x32, 0x3b, 0x89, 0x1b, 0x8d, 0x7d, 0xd6, 0xe0, 0x2b, 0x70, 0x54,
-	0xac, 0xa0, 0x37, 0x45, 0xb3, 0x3e, 0xd3, 0x13, 0x7d, 0x01, 0x4f, 0x7b, 0xe9, 0x85, 0xff, 0x31,
-	0x0b, 0x60, 0x20, 0x92, 0x37, 0x9e, 0x57, 0x42, 0xba, 0x79, 0xcc, 0x8c, 0x74, 0x09, 0xde, 0x5a,
-	0x1a, 0x9b, 0x6c, 0xb4, 0xd9, 0x7b, 0xb2, 0x1c, 0x2e, 0x60, 0x5e, 0x6c, 0xe7, 0x9a, 0x62, 0x32,
-	0x8c, 0xc1, 0x37, 0x22, 0x15, 0x82, 0x8e, 0xc0, 0x5b, 0xed, 0x79, 0x24, 0xb8, 0xb6, 0xa1, 0xf7,
-	0xe0, 0x1b, 0x40, 0xe7, 0xa4, 0xe0, 0xa8, 0xcb, 0xb6, 0x8d, 0x57, 0x12, 0x61, 0xfa, 0x9f, 0xc5,
-	0x17, 0x82, 0xc1, 0x93, 0x7a, 0x1f, 0x7c, 0x03, 0xbd, 0x4d, 0x95, 0x61, 0xff, 0x44, 0x3b, 0x3f,
-	0x41, 0x38, 0x6a, 0x66, 0xbd, 0xda, 0x9a, 0xa1, 0x5b, 0x84, 0x17, 0xd0, 0x97, 0x67, 0xc1, 0x63,
-	0x99, 0xb7, 0x75, 0xed, 0x70, 0xd2, 0x42, 0x3a, 0x9a, 0x07, 0x70, 0x54, 0x0d, 0x3c, 0x69, 0x95,
-	0xd4, 0x2a, 0xdc, 0x86, 0x3a, 0xb2, 0x3b, 0x70, 0x54, 0x35, 0x25, 0xeb, 0xf4, 0x56, 0xb2, 0x6e,
-	0x73, 0x6a, 0x3d, 0x06, 0x9f, 0x47, 0x82, 0x0e, 0x47, 0x82, 0x7e, 0x8e, 0x04, 0x7d, 0xd4, 0xc4,
-	0x3a, 0xd4, 0xc4, 0xfa, 0xae, 0x89, 0xb5, 0x75, 0xe4, 0x67, 0xb6, 0xfc, 0x0d, 0x00, 0x00, 0xff,
-	0xff, 0xba, 0x93, 0x6b, 0xc7, 0x97, 0x02, 0x00, 0x00,
+	// 405 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x93, 0xbf, 0xae, 0xd3, 0x30,
+	0x14, 0xc6, 0xe3, 0x5c, 0x6e, 0xae, 0x38, 0xf9, 0x73, 0x5b, 0x0f, 0x28, 0xea, 0x10, 0xa5, 0x1e,
+	0xa0, 0x30, 0x54, 0x90, 0xc2, 0x0b, 0xd0, 0x05, 0x21, 0xb1, 0xb8, 0xbc, 0x40, 0x4a, 0x2c, 0x35,
+	0x52, 0x9a, 0x84, 0xc4, 0x79, 0x03, 0x06, 0x46, 0x1e, 0x8b, 0xb1, 0x23, 0x23, 0x6a, 0x5f, 0x04,
+	0xc5, 0x3e, 0x6e, 0x1d, 0xc4, 0xc0, 0x56, 0xfb, 0x7c, 0xdf, 0xe7, 0xdf, 0x39, 0xa7, 0x81, 0xf0,
+	0x90, 0xd7, 0x45, 0x25, 0xba, 0x75, 0xdb, 0x35, 0xb2, 0xa1, 0x6e, 0xbb, 0x5f, 0x04, 0xbd, 0xcc,
+	0xe5, 0xd0, 0xeb, 0x9b, 0x45, 0xf0, 0xa5, 0x2a, 0x45, 0x2d, 0xf5, 0x89, 0xa5, 0x00, 0x9f, 0x87,
+	0x9a, 0x8b, 0xaf, 0x83, 0xe8, 0x25, 0xa5, 0xf0, 0xa4, 0xc8, 0x65, 0x1e, 0x93, 0x94, 0xac, 0x02,
+	0xae, 0x7e, 0xb3, 0x25, 0xf8, 0x4a, 0xd1, 0xb7, 0x4d, 0xdd, 0x8b, 0x7f, 0x4a, 0x3e, 0x42, 0xb0,
+	0x3b, 0x88, 0xaa, 0x32, 0x31, 0x11, 0xb8, 0x65, 0xa1, 0x14, 0x4f, 0xb9, 0x5b, 0x16, 0x57, 0x8f,
+	0x7b, 0xf3, 0xd0, 0x67, 0xe0, 0x69, 0xac, 0xf8, 0x2e, 0x25, 0xab, 0x7b, 0x8e, 0x27, 0xf6, 0x09,
+	0x42, 0xcc, 0xc2, 0x07, 0xff, 0x27, 0x2c, 0x86, 0x07, 0x59, 0x1e, 0x45, 0x33, 0x48, 0x95, 0x16,
+	0x72, 0x73, 0x64, 0x1b, 0x08, 0x77, 0x2a, 0xd8, 0xb0, 0xb1, 0xeb, 0xbb, 0x63, 0xa4, 0x9f, 0xc1,
+	0xba, 0xdd, 0xaf, 0x51, 0x62, 0x18, 0x66, 0x10, 0x19, 0x93, 0x86, 0x60, 0x8f, 0x10, 0x6e, 0x3b,
+	0x91, 0x4b, 0x81, 0x31, 0xec, 0x2d, 0x44, 0xe6, 0x02, 0x39, 0x19, 0x78, 0x7a, 0xb2, 0x76, 0xf0,
+	0x56, 0xdd, 0x70, 0xac, 0xb0, 0x6f, 0x64, 0xc4, 0xe9, 0x44, 0x7e, 0x34, 0x38, 0x29, 0xdc, 0xc9,
+	0xa1, 0x46, 0x4b, 0x34, 0x5a, 0x6e, 0xeb, 0xe0, 0x63, 0x89, 0x3e, 0x87, 0xfb, 0x7e, 0x1c, 0x88,
+	0x6a, 0xd8, 0xcf, 0x66, 0x8a, 0xd7, 0x9a, 0x36, 0xd7, 0x65, 0xfa, 0x72, 0x32, 0x50, 0x3f, 0x9b,
+	0x5b, 0x8d, 0xa1, 0xd2, 0xf4, 0xf7, 0x9d, 0x8c, 0x0d, 0x6a, 0x0c, 0xa4, 0x5f, 0xda, 0x1c, 0x8f,
+	0x57, 0x0e, 0x5d, 0xd5, 0x20, 0x2f, 0xa6, 0x20, 0x73, 0x0b, 0x04, 0x65, 0x48, 0xf2, 0xea, 0x2f,
+	0x12, 0x6a, 0x93, 0xa0, 0x14, 0x15, 0x59, 0x0f, 0x0f, 0x1f, 0xf4, 0x1f, 0x96, 0xbe, 0x03, 0x4f,
+	0x43, 0x51, 0x44, 0xb7, 0xe6, 0xb4, 0xa0, 0xf6, 0x15, 0x2e, 0xc5, 0x59, 0x91, 0xd7, 0x84, 0xbe,
+	0x01, 0x4f, 0x6f, 0x42, 0xdb, 0x26, 0x6b, 0xd2, 0xb6, 0xe9, 0xa2, 0x98, 0xf3, 0x3e, 0xfe, 0x79,
+	0x4e, 0xc8, 0xe9, 0x9c, 0x90, 0xdf, 0xe7, 0x84, 0xfc, 0xb8, 0x24, 0xce, 0xe9, 0x92, 0x38, 0xbf,
+	0x2e, 0x89, 0xb3, 0xf7, 0xd4, 0x57, 0xb1, 0xf9, 0x13, 0x00, 0x00, 0xff, 0xff, 0x4c, 0x4d, 0x44,
+	0x5f, 0x46, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -453,12 +579,8 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type HandlerClient interface {
-	// 网络 隧道
-	Tun(ctx context.Context, opts ...grpc.CallOption) (Handler_TunClient, error)
-	// shell 脚本 服务器控制
-	Shell(ctx context.Context, opts ...grpc.CallOption) (Handler_ShellClient, error)
-	// 状态 请求 主动上传
-	Status(ctx context.Context, opts ...grpc.CallOption) (Handler_StatusClient, error)
+	// 流
+	Stream(ctx context.Context, opts ...grpc.CallOption) (Handler_StreamClient, error)
 	// 创建
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*CreateResponse, error)
 }
@@ -471,93 +593,31 @@ func NewHandlerClient(cc *grpc.ClientConn) HandlerClient {
 	return &handlerClient{cc}
 }
 
-func (c *handlerClient) Tun(ctx context.Context, opts ...grpc.CallOption) (Handler_TunClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Handler_serviceDesc.Streams[0], "/pb.Handler/Tun", opts...)
+func (c *handlerClient) Stream(ctx context.Context, opts ...grpc.CallOption) (Handler_StreamClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_Handler_serviceDesc.Streams[0], "/pb.Handler/Stream", opts...)
 	if err != nil {
 		return nil, err
 	}
-	x := &handlerTunClient{stream}
+	x := &handlerStreamClient{stream}
 	return x, nil
 }
 
-type Handler_TunClient interface {
-	Send(*TunRequest) error
-	Recv() (*TunResponse, error)
+type Handler_StreamClient interface {
+	Send(*StreamRequest) error
+	Recv() (*StreamResponse, error)
 	grpc.ClientStream
 }
 
-type handlerTunClient struct {
+type handlerStreamClient struct {
 	grpc.ClientStream
 }
 
-func (x *handlerTunClient) Send(m *TunRequest) error {
+func (x *handlerStreamClient) Send(m *StreamRequest) error {
 	return x.ClientStream.SendMsg(m)
 }
 
-func (x *handlerTunClient) Recv() (*TunResponse, error) {
-	m := new(TunResponse)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-func (c *handlerClient) Shell(ctx context.Context, opts ...grpc.CallOption) (Handler_ShellClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Handler_serviceDesc.Streams[1], "/pb.Handler/Shell", opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &handlerShellClient{stream}
-	return x, nil
-}
-
-type Handler_ShellClient interface {
-	Send(*ShellRequest) error
-	Recv() (*ShellResponse, error)
-	grpc.ClientStream
-}
-
-type handlerShellClient struct {
-	grpc.ClientStream
-}
-
-func (x *handlerShellClient) Send(m *ShellRequest) error {
-	return x.ClientStream.SendMsg(m)
-}
-
-func (x *handlerShellClient) Recv() (*ShellResponse, error) {
-	m := new(ShellResponse)
-	if err := x.ClientStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-func (c *handlerClient) Status(ctx context.Context, opts ...grpc.CallOption) (Handler_StatusClient, error) {
-	stream, err := c.cc.NewStream(ctx, &_Handler_serviceDesc.Streams[2], "/pb.Handler/Status", opts...)
-	if err != nil {
-		return nil, err
-	}
-	x := &handlerStatusClient{stream}
-	return x, nil
-}
-
-type Handler_StatusClient interface {
-	Send(*StatusRequest) error
-	Recv() (*StatusResponse, error)
-	grpc.ClientStream
-}
-
-type handlerStatusClient struct {
-	grpc.ClientStream
-}
-
-func (x *handlerStatusClient) Send(m *StatusRequest) error {
-	return x.ClientStream.SendMsg(m)
-}
-
-func (x *handlerStatusClient) Recv() (*StatusResponse, error) {
-	m := new(StatusResponse)
+func (x *handlerStreamClient) Recv() (*StreamResponse, error) {
+	m := new(StreamResponse)
 	if err := x.ClientStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -575,12 +635,8 @@ func (c *handlerClient) Create(ctx context.Context, in *CreateRequest, opts ...g
 
 // HandlerServer is the server API for Handler service.
 type HandlerServer interface {
-	// 网络 隧道
-	Tun(Handler_TunServer) error
-	// shell 脚本 服务器控制
-	Shell(Handler_ShellServer) error
-	// 状态 请求 主动上传
-	Status(Handler_StatusServer) error
+	// 流
+	Stream(Handler_StreamServer) error
 	// 创建
 	Create(context.Context, *CreateRequest) (*CreateResponse, error)
 }
@@ -589,14 +645,8 @@ type HandlerServer interface {
 type UnimplementedHandlerServer struct {
 }
 
-func (*UnimplementedHandlerServer) Tun(srv Handler_TunServer) error {
-	return status.Errorf(codes.Unimplemented, "method Tun not implemented")
-}
-func (*UnimplementedHandlerServer) Shell(srv Handler_ShellServer) error {
-	return status.Errorf(codes.Unimplemented, "method Shell not implemented")
-}
-func (*UnimplementedHandlerServer) Status(srv Handler_StatusServer) error {
-	return status.Errorf(codes.Unimplemented, "method Status not implemented")
+func (*UnimplementedHandlerServer) Stream(srv Handler_StreamServer) error {
+	return status.Errorf(codes.Unimplemented, "method Stream not implemented")
 }
 func (*UnimplementedHandlerServer) Create(ctx context.Context, req *CreateRequest) (*CreateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
@@ -606,78 +656,26 @@ func RegisterHandlerServer(s *grpc.Server, srv HandlerServer) {
 	s.RegisterService(&_Handler_serviceDesc, srv)
 }
 
-func _Handler_Tun_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(HandlerServer).Tun(&handlerTunServer{stream})
+func _Handler_Stream_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(HandlerServer).Stream(&handlerStreamServer{stream})
 }
 
-type Handler_TunServer interface {
-	Send(*TunResponse) error
-	Recv() (*TunRequest, error)
+type Handler_StreamServer interface {
+	Send(*StreamResponse) error
+	Recv() (*StreamRequest, error)
 	grpc.ServerStream
 }
 
-type handlerTunServer struct {
+type handlerStreamServer struct {
 	grpc.ServerStream
 }
 
-func (x *handlerTunServer) Send(m *TunResponse) error {
+func (x *handlerStreamServer) Send(m *StreamResponse) error {
 	return x.ServerStream.SendMsg(m)
 }
 
-func (x *handlerTunServer) Recv() (*TunRequest, error) {
-	m := new(TunRequest)
-	if err := x.ServerStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-func _Handler_Shell_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(HandlerServer).Shell(&handlerShellServer{stream})
-}
-
-type Handler_ShellServer interface {
-	Send(*ShellResponse) error
-	Recv() (*ShellRequest, error)
-	grpc.ServerStream
-}
-
-type handlerShellServer struct {
-	grpc.ServerStream
-}
-
-func (x *handlerShellServer) Send(m *ShellResponse) error {
-	return x.ServerStream.SendMsg(m)
-}
-
-func (x *handlerShellServer) Recv() (*ShellRequest, error) {
-	m := new(ShellRequest)
-	if err := x.ServerStream.RecvMsg(m); err != nil {
-		return nil, err
-	}
-	return m, nil
-}
-
-func _Handler_Status_Handler(srv interface{}, stream grpc.ServerStream) error {
-	return srv.(HandlerServer).Status(&handlerStatusServer{stream})
-}
-
-type Handler_StatusServer interface {
-	Send(*StatusResponse) error
-	Recv() (*StatusRequest, error)
-	grpc.ServerStream
-}
-
-type handlerStatusServer struct {
-	grpc.ServerStream
-}
-
-func (x *handlerStatusServer) Send(m *StatusResponse) error {
-	return x.ServerStream.SendMsg(m)
-}
-
-func (x *handlerStatusServer) Recv() (*StatusRequest, error) {
-	m := new(StatusRequest)
+func (x *handlerStreamServer) Recv() (*StreamRequest, error) {
+	m := new(StreamRequest)
 	if err := x.ServerStream.RecvMsg(m); err != nil {
 		return nil, err
 	}
@@ -713,20 +711,8 @@ var _Handler_serviceDesc = grpc.ServiceDesc{
 	},
 	Streams: []grpc.StreamDesc{
 		{
-			StreamName:    "Tun",
-			Handler:       _Handler_Tun_Handler,
-			ServerStreams: true,
-			ClientStreams: true,
-		},
-		{
-			StreamName:    "Shell",
-			Handler:       _Handler_Shell_Handler,
-			ServerStreams: true,
-			ClientStreams: true,
-		},
-		{
-			StreamName:    "Status",
-			Handler:       _Handler_Status_Handler,
+			StreamName:    "Stream",
+			Handler:       _Handler_Stream_Handler,
 			ServerStreams: true,
 			ClientStreams: true,
 		},
@@ -994,6 +980,124 @@ func (m *CreateResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *StreamRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *StreamRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StreamRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Status != nil {
+		{
+			size, err := m.Status.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintHandler(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x1a
+	}
+	if m.Shell != nil {
+		{
+			size, err := m.Shell.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintHandler(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Tun != nil {
+		{
+			size, err := m.Tun.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintHandler(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *StreamResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *StreamResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *StreamResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Status != nil {
+		{
+			size, err := m.Status.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintHandler(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x1a
+	}
+	if m.Shell != nil {
+		{
+			size, err := m.Shell.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintHandler(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Tun != nil {
+		{
+			size, err := m.Tun.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintHandler(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintHandler(dAtA []byte, offset int, v uint64) int {
 	offset -= sovHandler(v)
 	base := offset
@@ -1110,6 +1214,48 @@ func (m *CreateResponse) Size() (n int) {
 	_ = l
 	if m.Client != nil {
 		l = m.Client.Size()
+		n += 1 + l + sovHandler(uint64(l))
+	}
+	return n
+}
+
+func (m *StreamRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Tun != nil {
+		l = m.Tun.Size()
+		n += 1 + l + sovHandler(uint64(l))
+	}
+	if m.Shell != nil {
+		l = m.Shell.Size()
+		n += 1 + l + sovHandler(uint64(l))
+	}
+	if m.Status != nil {
+		l = m.Status.Size()
+		n += 1 + l + sovHandler(uint64(l))
+	}
+	return n
+}
+
+func (m *StreamResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Tun != nil {
+		l = m.Tun.Size()
+		n += 1 + l + sovHandler(uint64(l))
+	}
+	if m.Shell != nil {
+		l = m.Shell.Size()
+		n += 1 + l + sovHandler(uint64(l))
+	}
+	if m.Status != nil {
+		l = m.Status.Size()
 		n += 1 + l + sovHandler(uint64(l))
 	}
 	return n
@@ -1807,6 +1953,322 @@ func (m *CreateResponse) Unmarshal(dAtA []byte) error {
 				m.Client = &Client{}
 			}
 			if err := m.Client.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipHandler(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthHandler
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *StreamRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowHandler
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: StreamRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: StreamRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Tun", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowHandler
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthHandler
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthHandler
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Tun == nil {
+				m.Tun = &TunRequest{}
+			}
+			if err := m.Tun.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Shell", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowHandler
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthHandler
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthHandler
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Shell == nil {
+				m.Shell = &ShellRequest{}
+			}
+			if err := m.Shell.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Status", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowHandler
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthHandler
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthHandler
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Status == nil {
+				m.Status = &StatusRequest{}
+			}
+			if err := m.Status.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipHandler(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthHandler
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *StreamResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowHandler
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: StreamResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: StreamResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Tun", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowHandler
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthHandler
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthHandler
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Tun == nil {
+				m.Tun = &TunResponse{}
+			}
+			if err := m.Tun.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Shell", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowHandler
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthHandler
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthHandler
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Shell == nil {
+				m.Shell = &ShellResponse{}
+			}
+			if err := m.Shell.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Status", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowHandler
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthHandler
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthHandler
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Status == nil {
+				m.Status = &StatusResponse{}
+			}
+			if err := m.Status.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

@@ -51,15 +51,21 @@ message CreateResponse {
     Client client = 1;
 }
 
+message StreamRequest {
+    TunRequest tun = 1;
+    ShellRequest shell = 2;
+    StatusRequest status = 3;
+}
+
+message StreamResponse {
+    TunResponse tun = 1;
+    ShellResponse shell = 2;
+    StatusResponse status = 3;
+}
+
 service Handler {
-    // 网络 隧道
-    rpc Tun(stream TunRequest) returns (stream TunResponse) {}
-
-    // shell 脚本 服务器控制
-    rpc Shell(stream ShellRequest) returns (stream ShellResponse) {}
-
-    // 状态 请求 主动上传
-    rpc Status(stream StatusRequest) returns (stream StatusResponse) {}
+    // 流
+    rpc Stream(stream StreamRequest) returns (stream StreamResponse) {}
     
     // 创建
     rpc Create(CreateRequest) returns (CreateResponse) {}
