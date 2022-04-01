@@ -13,6 +13,20 @@ message Route {
         ACCEPT = 1;
     }
 
+    enum Type {
+        // 全部
+        NONE = 0;
+
+        // 接收
+        ICMP = 1;
+        
+        // 接收
+        UDP = 100;
+
+        // 接收
+        TCP = 101;
+    }
+
 
     // 路由 id
     string id = 1;
@@ -26,6 +40,11 @@ message Route {
     // 备注
     string remark = 4;
 
+    // 端口
+    uint32 port = 5;
+    
+    // 协议类型
+    Type type = 6;
 
     // 动作
     Action action = 10;
