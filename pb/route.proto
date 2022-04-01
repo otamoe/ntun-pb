@@ -55,6 +55,9 @@ message Route {
     
     // 状态
     State state = 20;
+
+    // 优先级
+    int32 level = 21;
     
     // createdAt
     int64 createdAt = 30;
