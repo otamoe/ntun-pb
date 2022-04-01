@@ -31,21 +31,25 @@ message Route {
     // 路由 id
     string id = 1;
 
+    // 协议类型
+    Type type = 2;
+
     // 来源
-    string source = 2;
+    string sourceIP = 3;
 
     // 目标
-    string destination = 3;
-
-    // 备注
-    string remark = 4;
+    string destinationIP = 4;
 
     // 端口
-    uint32 port = 5;
-    
-    // 协议类型
-    Type type = 6;
+    uint32 sourcePort = 5;
 
+
+    uint32 destinationPort = 6;
+
+    // 备注
+    string remark = 7;
+
+    
     // 动作
     Action action = 10;
     
