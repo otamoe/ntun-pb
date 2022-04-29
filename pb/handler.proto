@@ -5,6 +5,16 @@ import "status.proto";
 import "client.proto";
 
 
+// Ping 请求
+message PingRequest {
+    bool ok = 1;
+}
+
+// Ping 响应
+message PingResponse {
+    bool ok = 1;
+}
+
 // 隧道 请求
 message TunRequest {
     bytes data = 1;
@@ -52,15 +62,17 @@ message CreateResponse {
 }
 
 message StreamRequest {
-    TunRequest tun = 1;
-    ShellRequest shell = 2;
-    StatusRequest status = 3;
+    PingRequest ping = 1;
+    TunRequest tun = 2;
+    ShellRequest shell = 3;
+    StatusRequest status = 4;
 }
 
 message StreamResponse {
-    TunResponse tun = 1;
-    ShellResponse shell = 2;
-    StatusResponse status = 3;
+    PingRequest ping = 1;
+    TunResponse tun = 2;
+    ShellResponse shell = 3;
+    StatusResponse status = 4;
 }
 
 service Handler {
