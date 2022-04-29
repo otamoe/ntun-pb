@@ -7,12 +7,12 @@ import "client.proto";
 
 // Ping 请求
 message PingRequest {
-    bool reply = 1;
+    bool pong = 1;
 }
 
 // Ping 响应
 message PingResponse {
-    bool reply = 1;
+    bool pong = 1;
 }
 
 // 隧道 请求
